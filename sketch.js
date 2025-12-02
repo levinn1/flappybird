@@ -298,3 +298,4 @@ function startGame() {
   gameScreen = 1;
 
 }
+
