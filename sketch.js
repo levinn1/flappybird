@@ -160,15 +160,18 @@ function applyHorizontalSpeed() {
 
 // WALL SYSTEM
 function wallAdder() {
-  if (millis() - lastAddTime > wallInterval) {
-    let randHeight = floor(random(minGapHeight, maxGapHeight));
-    let randY = floor(random(0, height - randHeight));
-
-    // [x, y, width, height, scoredFlag]
-    walls.push([width, randY, wallWidth, randHeight, 0]);
-    lastAddTime = millis();
+    if (millis() - lastAddTime > wallInterval) {
+      
+      let gapHeight = 220;              // always the same height
+      let gapY = height/2 - gapHeight/2; // centered
+      
+      // [x, y, width, height, scoredFlag]
+      walls.push([width, gapY, wallWidth, gapHeight, 0]);
+      
+      lastAddTime = millis();
+    }
   }
-}
+  
 
 function wallHandler() {
   for (let i = walls.length - 1; i >= 0; i--) {
@@ -293,4 +296,5 @@ function mousePressed() {
 
 function startGame() {
   gameScreen = 1;
+
 }
